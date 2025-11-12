@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Mode of Payment</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-list lines="none" class="billing">
+    <ion-list-header>
+      <ion-label color="dark">Mode of Payment</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-button expand="full" color="warning" (click)="payCOD()">Cash on Delivery</ion-button>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="full" color="warning" class="ion-margin-top" (click)="checkout()">
+    Proceed
+  </ion-button>
+</ion-content>

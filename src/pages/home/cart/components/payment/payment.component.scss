@@ -1,0 +1,30 @@
+ion-content {
+  .payment-list {
+    background: transparent;
+
+    .payment-item {
+      --padding-start: 1rem;
+      --inner-padding-end: 5px;
+      margin-bottom: 0.5rem;
+      border: 1px solid var(--ion-color-medium);
+      border-radius: 8px;
+      ion-label {
+        font-size: 0.95rem;
+        p {
+          font-size: 0.8rem;
+          margin-top: 3px;
+        }
+      }
+    }
+  }
+
+  .paypal-container {
+    border: 1px solid var(--ion-color-medium);
+    border-radius: 8px;
+    padding: 1rem;
+  }
+
+  .checkout-button {
+    margin-top: 1.5rem;
+  }
+}

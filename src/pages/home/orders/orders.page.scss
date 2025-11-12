@@ -1,0 +1,18 @@
+ion-card {
+  margin-bottom: 1rem;
+
+  ion-card-header {
+    background: #f5f5f5;
+    border-bottom: 1px solid #ccc;
+  }
+
+  ion-card-content {
+    h4 {
+      margin: 0.5rem 0 0.2rem;
+    }
+
+    p, li {
+      margin: 0.2rem 0;
+    }
+  }
+}

@@ -1,0 +1,68 @@
+/* ----------------------------------------------------
+ * 1. BASE LAYOUT FIXES (Ensures full-screen container rendering)
+ * ---------------------------------------------------- */
+
+/* Ensures the component takes up 100% of the modal's available space */
+:host {
+  display: flex; 
+  flex-direction: column;
+  height: 100%; 
+  width: 100%;
+}
+
+/* * ion-content is the scrollable container. 
+ * We use flex-grow to make sure it fills the space left by the header.
+ */
+ion-content {
+  flex-grow: 1; 
+  display: block; /* Ensures standard block display behavior */
+  
+  /* Setting padding on the internal content container */
+  --padding-top: 16px;
+  --padding-bottom: 16px;
+  --padding-start: 16px;
+  --padding-end: 16px;
+  
+  /* 🔥 CRITICAL FIX for blank screen: 
+     Force the internal content to be visible if a parent element is hiding it.
+     Also ensures the scrollable area is active.
+  */
+  visibility: visible; 
+  contain: none; /* Prevents optimization that might hide content */
+}
+
+/* ----------------------------------------------------
+ * 2. FORM STYLING (Specific to your inputs and buttons)
+ * ---------------------------------------------------- */
+
+/* Styling for input fields with class "full-border" */
+.full-border {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  /* Add internal padding to the ion-input/ion-textarea for better look */
+  --padding-start: 10px; 
+  --padding-end: 10px;
+}
+
+/* Styling for the Save button text */
+ion-button {
+  ion-text {
+    font-size: 1rem;
+  }
+}
+
+/* Ensure the main form container (ion-list) takes up full width 
+   to prevent rendering collapse inside the modal.
+*/
+ion-list {
+  width: 100%; 
+  padding: 0; 
+}
+
+/* ----------------------------------------------------
+ * 3. REMOVED STYLES
+ * ---------------------------------------------------- */
+/* The ion-card, .offer, .amtSaved, etc. styles from your previous base 
+   have been removed as they don't apply to this form.
+*/

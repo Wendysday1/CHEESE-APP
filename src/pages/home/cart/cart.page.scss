@@ -1,0 +1,237 @@
+ion-content {
+  ion-item.total-item {
+    align-items: center;
+    ion-label {
+      margin: 0;
+      font-size: 0.8rem;
+      font-style: italic;
+      font-weight: 600;
+    }
+    ion-icon {
+      font-size: 1rem;
+    }
+  }
+
+  ion-card.cart-item {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    ion-item {
+      --padding-start: 0;
+      --inner-padding-end: 5px;
+      ion-thumbnail {
+        height: 5rem;
+        width: 5rem;
+        margin: 0 16px 0 0;
+        ion-img {
+          height: 100%;
+          width: 100%;
+          border-radius: 8px;
+        }
+      }
+
+      ion-label {
+        font-size: 0.95rem;
+        p.price {
+          margin-top: 10px;
+          ion-text {
+            font-size: 1rem;
+            font-weight: normal;
+            span {
+              font-size: 0.7rem;
+              vertical-align: text-top;
+            }
+          }
+        }
+      }
+
+      ion-col {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        ion-row {
+          ion-button {
+            --padding-start: 5px;
+            --padding-end: 5px;
+            width: 1.4rem;
+            min-height: 1.4rem;
+            ion-icon {
+              font-size: 1rem;
+            }
+          }
+        }
+
+        ion-row.quantity {
+          margin: 3px 0;
+          font-size: 0.85rem;
+        }
+      }
+    }
+  }
+
+  ion-list.coupon {
+    background: transparent;
+    ion-item-divider {
+      margin-left: 1rem;
+      margin-right: 1rem;
+      background: #fff;
+      padding-left: 0;
+      border-bottom: 0;
+    }
+    ion-card {
+      margin-top: 0.5rem;
+      border-radius: 8px;
+      ion-item {
+        margin: 0;
+        ion-label {
+          font-size: 0.9rem;
+          p {
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+  }
+
+  // --- NEW STYLING FOR PAYMENT MODE ---
+  ion-list.payment-mode {
+    background: transparent;
+    // Keep the list header styling separate from the box
+    ion-list-header {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    // This ion-item-group is the box that mimics the shipping/billing address
+    ion-item-group {
+      margin-left: 1rem;
+      margin-right: 1rem;
+      // Copying the border/rounded corner style from ion-list.billing
+      border: 1px solid var(--ion-color-medium);
+      border-radius: 8px;
+
+      ion-item {
+        --background: transparent;
+        // Adjust padding to match the visual spacing
+        --padding-start: 1rem; 
+        --padding-end: 1rem; 
+
+        ion-label {
+          font-size: 0.9rem;
+          // Apply a specific style for the 'Work/Home' title part
+          .payment-title {
+            font-weight: 600; // Emphasize the payment title like 'Work' in the image
+            font-size: 1rem; 
+          }
+          p {
+            font-size: 0.8rem;
+            margin-top: 3px; 
+          }
+        }
+        
+        // Style for the 'CHANGE' button/text on the right
+        ion-note {
+          font-size: 0.8rem;
+          font-weight: 600;
+          color: var(--ion-color-primary, #007bff); // Use primary color for link/button
+        }
+      }
+    }
+  }
+  // --- END NEW STYLING ---
+
+  ion-list.billing {
+    background: transparent;
+    ion-list-header {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    ion-item-group {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        border: 1px solid var(--ion-color-medium);
+        border-radius: 8px;
+        ion-item {
+          --background: transparent;
+          ion-label,
+          ion-text {
+            font-size: 0.9rem;
+          }
+          p {
+            font-size: 0.7rem;
+            margin-top:3px; 
+          }
+        }
+    }
+  }
+}
+
+.dashedBorderTop {
+    border-top: 1px dashed var(--ion-color-medium);
+}
+
+.empty-screen {
+  margin-top: 10rem;
+  ion-icon {
+    font-size: 10rem;
+  }
+}
+
+$pink-border-color: #e5a7b1; 
+
+.address-like-box {
+  // Apply the custom border and rounded corners
+  border: 1px solid $pink-border-color;
+  border-radius: 4px;
+  
+  // Set the width and margins to match the shipping box structure
+  margin: 0 1rem 1rem 1rem; // Top/Bottom margin will vary, but horizontal margin should match list content
+  padding: 0; // Remove default padding since ion-item controls it
+
+  // Target the ion-item inside this custom box
+  ion-item {
+    // Remove all default ion-item lines, backgrounds, and padding controls
+    --background: transparent;
+    --inner-padding-end: 0;
+    --padding-start: 1rem; // Add back left/right padding to match image
+    --padding-end: 1rem;
+    --min-height: auto; // Allow content to dictate height
+
+    ion-label {
+      // Ensure the 'Work' text is bold and the address text flows
+      font-weight: normal; // Reset default Ionic bolding
+      
+      // Target the 'Work' title
+      strong {
+        font-weight: bold;
+        display: block; // Ensures the address <p> starts on a new line
+        margin-bottom: 2px;
+      }
+      
+      // Target the address text
+      p {
+        font-size: 0.8rem; // Smaller font for address details
+        color: #666;
+        margin-top: 0; // Remove default p margin
+      }
+    }
+    
+    // Target the location icon
+    ion-icon[slot="start"] {
+      font-size: 1.2rem;
+      margin-inline-end: 10px;
+      color: #666;
+    }
+
+    // Target the 'CHANGE' button
+    ion-button[slot="end"] {
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      font-weight: bold;
+      --color: #333; // Dark text color for the clear button
+    }
+  }
+}

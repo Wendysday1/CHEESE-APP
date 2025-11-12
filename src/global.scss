@@ -1,0 +1,85 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+/**
+ * Ionic Dark Mode
+ * -----------------------------------------------------
+ * For more info, please see:
+ * https://ionicframework.com/docs/theming/dark-mode
+ */
+
+/* @import "@ionic/angular/css/palettes/dark.always.css"; */
+/* @import "@ionic/angular/css/palettes/dark.class.css"; */
+@import '@ionic/angular/css/palettes/dark.system.css';
+
+* {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* YOUR EXISTING GLOBAL BADGE STYLES */
+ion-badge{
+    position:absolute;
+    top:0;
+    right:0;
+    border-radius: 50%;
+    height: 1rem;
+    width: 1rem;
+    margin: 0rem -0.3rem 0 0;
+    display: flex;
+    align-items:center; 
+    justify-content: center;
+    ion-text{
+        font-size: 0.6rem;
+    }
+}
+
+/* ============================================== */
+/* 🔑 GLOBAL FIX FOR FULL-SCREEN MODAL OCCUPANCY 🔑 */
+/* ============================================== */
+
+/* * This targets the ion-modal component itself to force it to use 100% 
+ * of the viewport width and height, regardless of screen size.
+ */
+ion-modal {
+  /* Ensure modal takes full viewport height and width */
+  --height: 100%; 
+  --width: 100%;
+  /* This is crucial for making the modal content area stretch */
+  --min-height: 100%; 
+  --min-width: 100%;
+}
+
+/* * This targets the inner component container (like <app-coupons>) 
+ * to ensure it uses the full height passed down by the modal.
+ */
+.ion-delegate-host.ion-page {
+  /* Use flex properties to ensure height calculation is reliable */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}

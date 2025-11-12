@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Orders</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!-- Current Order -->
+  <div *ngIf="currentOrder">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Current Order #{{ currentOrder.id }}</ion-card-title>
+        <p>{{ currentOrder.created_at | date:'short' }}</p>
+      </ion-card-header>
+      <ion-card-content>
+        <h4>Items:</h4>
+        <ul>
+          <li *ngFor="let item of currentOrder.order_items">
+            <ion-img [src]="item.item.cover" style="width:40px;height:40px;margin-right:10px;"></ion-img>
+            {{ item.item.name }} x {{ item.quantity }} - ₱{{ item.price }}
+          </li>
+        </ul>
+        <h4>Total:</h4>
+        <p>₱{{ currentOrder.total }}</p>
+
+        <ion-button expand="full" color="success" (click)="markOrderComplete(currentOrder)">
+          Order Received
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <!-- Past Orders -->
+  <div *ngIf="pastOrders.length > 0">
+    <h3>Past Orders</h3>
+    <ion-card *ngFor="let order of pastOrders">
+      <ion-card-header>
+        <ion-card-title>Order #{{ order.id }} - {{ order.status }}</ion-card-title>
+        <p>{{ order.created_at | date:'short' }}</p>
+      </ion-card-header>
+      <ion-card-content>
+        <h4>Items:</h4>
+        <ul>
+          <li *ngFor="let item of order.order_items">
+            <ion-img [src]="item.item.cover" style="width:40px;height:40px;margin-right:10px;"></ion-img>
+            {{ item.item.name }} x {{ item.quantity }} - ₱{{ item.price }}
+          </li>
+        </ul>
+        <h4>Total:</h4>
+        <p>₱{{ order.total }}</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <!-- No orders message -->
+  <div *ngIf="!currentOrder && pastOrders.length === 0">
+    <p>No orders yet.</p>
+  </div>
+
+</ion-content>

@@ -1,0 +1,33 @@
+.about-page {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; // use flex-start for better mobile scrolling
+  background-color: #fff176; // yellow background
+  min-height: 100%;
+
+  ion-card {
+    max-width: 800px; // limit card width on large screens
+    width: 90%;       // flexible width for smaller screens
+    margin: 2rem auto; // vertical spacing on mobile
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  ion-card-title {
+    font-size: 1.8rem;
+
+    @media (max-width: 480px) {
+      font-size: 1.5rem; // smaller title on small screens
+    }
+  }
+
+  ion-card-content p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    font-size: 1rem;
+
+    @media (max-width: 480px) {
+      font-size: 0.9rem; // slightly smaller text on mobile
+    }
+  }
+}

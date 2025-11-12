@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>SHEEZY</ion-title>
+
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button fill="primary" [routerLink]="['/', 'home', 'cart']">       
+        <ion-icon name="cart-outline" slot="icon-only"></ion-icon>
+        <ion-badge *ngIf="totalItems > 0" color="primary">
+          <ion-text>{{ totalItems }}</ion-text>
+        </ion-badge>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-toolbar>
+  <ion-searchbar
+    debounce="800"
+    #searchInput
+    mode="ios"
+    placeholder="What Cheese are you looking for?"
+    (ionInput)="onSearchChange($event)">
+  </ion-searchbar>
+</ion-toolbar>
+
+<ion-content>
+  <ion-row>
+    <ion-col *ngFor="let item of items; let i = index" sizeLg="3" sizeMd="4" sizeSm="6" sizeXl="3" sizeXs="6">
+      <ion-card [routerLink]="['/', 'home', 'cheese', item?.id]">   
+        <ion-thumbnail>
+          <ion-img [src]="item?.cover"></ion-img> 
+        </ion-thumbnail>
+
+        <ion-label>
+          <ion-text color="dark"><strong>{{ item?.name }}</strong></ion-text>
+          <p>
+            <ion-text color="dark"> 
+              {{ cart.currency }}<strong> {{ item?.price }} </strong>  
+            </ion-text> 
+
+            <ion-text class="rating" color="dark">
+              {{ item?.rating }}
+              <ion-icon name="star" color="warning"></ion-icon>
+            </ion-text>
+          </p>
+        </ion-label>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-content>

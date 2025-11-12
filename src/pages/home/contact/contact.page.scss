@@ -1,0 +1,28 @@
+.contact-page {
+  ion-card {
+    margin: 16px;
+    --background: #fffbe6; // optional light background
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+
+    ion-card-header {
+      ion-card-title {
+        font-size: 1.4rem;
+        font-weight: bold;
+        color: #2c3e50;
+      }
+    }
+
+    ion-card-content {
+      p {
+        font-size: 1rem;
+        color: #34495e;
+        margin-bottom: 12px;
+      }
+
+      strong {
+        color: #2c3e50;
+      }
+    }
+  }
+}
