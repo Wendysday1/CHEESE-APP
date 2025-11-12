@@ -23,10 +23,6 @@
     <ion-input [(ngModel)]="password" type="password"></ion-input>
   </ion-item>
 
-  <ion-item>
-    <ion-label>Avatar</ion-label>
-    <input type="file" (change)="onFileChange($event)" />
-  </ion-item>
 
   <ion-button expand="block" (click)="register()">Register</ion-button>
   <ion-button expand="block" fill="clear" (click)="goToLogin()">Login</ion-button>
